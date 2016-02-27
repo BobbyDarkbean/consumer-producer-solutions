@@ -8,6 +8,7 @@ namespace ConsProd {
 class CONSPROD_KERNEL_SHARED IRunnable
 {
 public:
+    IRunnable();
     virtual void run() = 0;
     virtual ~IRunnable() = 0;
 

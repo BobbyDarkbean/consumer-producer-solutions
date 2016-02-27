@@ -5,11 +5,13 @@ project (${LIB})
 
 message ("Project ${PROJECT_NAME}")
 
-set (SRC irunnable.c++)
+set (SRC irunnable.c++
+         itask.c++)
 
 set (HDR consprod_kernel_global.h
          consprod_kernel_shared.h
-         irunnable.h)
+         irunnable.h
+         itask.h)
 
 add_definitions (-DCONSPROD_KERNEL_LIB)
 

@@ -2,6 +2,11 @@
 
 namespace ConsProd {
 
+IRunnable::IRunnable()
+{
+    // no-op
+}
+
 void IRunnable::run()
 {
     // no-op
