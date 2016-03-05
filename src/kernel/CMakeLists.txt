@@ -6,12 +6,16 @@ project (${LIB})
 message ("Project ${PROJECT_NAME}")
 
 set (SRC irunnable.c++
-         itask.c++)
+         itask.c++
+         taskcreator.c++
+         taskfactory.c++)
 
 set (HDR consprod_kernel_global.h
          consprod_kernel_shared.h
          irunnable.h
-         itask.h)
+         itask.h
+         taskcreator.h
+         taskfactory.h)
 
 add_definitions (-DCONSPROD_KERNEL_LIB)
 
