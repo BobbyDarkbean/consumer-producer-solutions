@@ -5,14 +5,16 @@ project (${LIB})
 
 message ("Project ${PROJECT_NAME}")
 
-set (SRC irunnable.c++
+set (SRC consumer.c++
+         irunnable.c++
          itask.c++
          itaskcreator.c++
          itaskfactory.c++
          itaskqueue.c++
          producer.c++)
 
-set (HDR cps_kernel_global.h
+set (HDR consumer.h
+         cps_kernel_global.h
          cps_kernel_shared.h
          irunnable.h
          itask.h
