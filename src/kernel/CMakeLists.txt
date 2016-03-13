@@ -11,6 +11,7 @@ set (SRC consumer.c++
          itaskcreator.c++
          itaskfactory.c++
          itaskqueue.c++
+         lockingqueue.c++
          producer.c++)
 
 set (HDR consumer.h
@@ -21,6 +22,7 @@ set (HDR consumer.h
          itaskcreator.h
          itaskfactory.h
          itaskqueue.h
+         lockingqueue.h
          producer.h)
 
 add_definitions (-DCPS_KERNEL_LIB)
