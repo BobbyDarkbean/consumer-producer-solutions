@@ -16,3 +16,4 @@ if (CMAKE_COMPILER_IS_GNUCXX)
 endif ()
 
 add_subdirectory (kernel)
+add_subdirectory (server)
