@@ -24,4 +24,10 @@
 #define DECLARE_IMPLEMENTATION(Class) \
     Class##Implementation *const m;
 
+#define DECLARE_UNIQUE_IMPLEMENTATION(Class) \
+    Class##Implementation *const m_##Class##_impl;
+
+#define M_UNIQUE(Class) \
+    Class##Implementation *const m = m_##Class##_impl
+
 #endif // _Cps_Kernel_Global_h_
