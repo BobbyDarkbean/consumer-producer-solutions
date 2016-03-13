@@ -7,7 +7,7 @@ namespace Cps {
 
 class ITaskQueue;
 
-class ConsumerImplementation;
+struct ConsumerImplementation;
 class CPS_KERNEL_SHARED Consumer : public IRunnable
 {
 public:

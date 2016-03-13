@@ -8,7 +8,7 @@ namespace Cps {
 class ITaskCreator;
 class ITaskQueue;
 
-class ProducerImplementation;
+struct ProducerImplementation;
 class CPS_KERNEL_SHARED Producer : public IRunnable
 {
 public:
