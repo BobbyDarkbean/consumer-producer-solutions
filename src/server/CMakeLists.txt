@@ -7,11 +7,13 @@ message ("Project ${PROJECT_NAME}")
 
 include_directories (../kernel)
 
-set (SRC connectiontask.c++)
+set (SRC connectiontask.c++
+         iconnectiontaskfactory.c++)
 
 set (HDR connectioninfo.h
          connectiontask.h
-         cps_server_shared.h)
+         cps_server_shared.h
+         iconnectiontaskfactory.h)
 
 add_definitions (-DCPS_SERVER_LIB)
 
