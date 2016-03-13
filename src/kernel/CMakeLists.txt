@@ -7,14 +7,14 @@ message ("Project ${PROJECT_NAME}")
 
 set (SRC irunnable.c++
          itask.c++
-         taskcreator.c++
+         itaskcreator.c++
          taskfactory.c++)
 
 set (HDR cps_kernel_global.h
          cps_kernel_shared.h
          irunnable.h
          itask.h
-         taskcreator.h
+         itaskcreator.h
          taskfactory.h)
 
 add_definitions (-DCPS_KERNEL_LIB)
