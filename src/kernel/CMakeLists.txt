@@ -9,7 +9,8 @@ set (SRC irunnable.c++
          itask.c++
          itaskcreator.c++
          itaskfactory.c++
-         itaskqueue.c++)
+         itaskqueue.c++
+         producer.c++)
 
 set (HDR cps_kernel_global.h
          cps_kernel_shared.h
@@ -17,7 +18,8 @@ set (HDR cps_kernel_global.h
          itask.h
          itaskcreator.h
          itaskfactory.h
-         itaskqueue.h)
+         itaskqueue.h
+         producer.h)
 
 add_definitions (-DCPS_KERNEL_LIB)
 
