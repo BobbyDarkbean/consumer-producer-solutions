@@ -7,14 +7,14 @@ ITaskQueue::ITaskQueue()
     // no-op
 }
 
-ITask *ITaskQueue::pop()
-{
-    return nullptr;
-}
-
 void ITaskQueue::push(ITask *)
 {
     // no-op
+}
+
+ITask *ITaskQueue::pop()
+{
+    return nullptr;
 }
 
 ITaskQueue::~ITaskQueue()
