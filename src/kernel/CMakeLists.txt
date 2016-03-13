@@ -8,14 +8,16 @@ message ("Project ${PROJECT_NAME}")
 set (SRC irunnable.c++
          itask.c++
          itaskcreator.c++
-         itaskfactory.c++)
+         itaskfactory.c++
+         itaskqueue.c++)
 
 set (HDR cps_kernel_global.h
          cps_kernel_shared.h
          irunnable.h
          itask.h
          itaskcreator.h
-         itaskfactory.h)
+         itaskfactory.h
+         itaskqueue.h)
 
 add_definitions (-DCPS_KERNEL_LIB)
 
