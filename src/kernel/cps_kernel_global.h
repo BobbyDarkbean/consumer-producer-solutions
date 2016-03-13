@@ -1,5 +1,5 @@
-#ifndef _Consprod_Kernel_Global_h_
-#define _Consprod_Kernel_Global_h_
+#ifndef _Cps_Kernel_Global_h_
+#define _Cps_Kernel_Global_h_
 
 #if defined(OS_WIN)
 #define DECLSPEC_EXPORT __declspec(dllexport)
@@ -24,4 +24,4 @@
 #define DECLARE_IMPLEMENTATION(Class) \
     Class##Implementation *const m;
 
-#endif // _Consprod_Kernel_Global_h_
+#endif // _Cps_Kernel_Global_h_

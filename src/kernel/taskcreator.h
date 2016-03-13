@@ -1,15 +1,15 @@
 #ifndef _TaskCreator_h_
 #define _TaskCreator_h_
 
-#include "consprod_kernel_shared.h"
+#include "cps_kernel_shared.h"
 
-namespace ConsProd {
+namespace Cps {
 
 class ITask;
 class TaskFactory;
 
 class TaskCreatorImplementation;
-class CONSPROD_KERNEL_SHARED TaskCreator
+class CPS_KERNEL_SHARED TaskCreator
 {
 public:
     TaskCreator();
@@ -27,6 +27,6 @@ private:
     DECLARE_IMPLEMENTATION(TaskCreator)
 };
 
-} // namespace ConsProd
+} // namespace Cps
 
 #endif // _TaskCreator_h_

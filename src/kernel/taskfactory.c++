@@ -1,6 +1,6 @@
 #include "taskfactory.h"
 
-namespace ConsProd {
+namespace Cps {
 
 TaskFactory::TaskFactory()
 {
@@ -17,4 +17,4 @@ TaskFactory::~TaskFactory()
     // no-op
 }
 
-} // namespace ConsProd
+} // namespace Cps

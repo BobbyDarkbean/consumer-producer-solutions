@@ -1,6 +1,6 @@
 #include "itask.h"
 
-namespace ConsProd {
+namespace Cps {
 
 ITask::ITask()
     : IRunnable()
@@ -18,4 +18,4 @@ ITask::~ITask()
     // no-op
 }
 
-} // namespace ConsProd
+} // namespace Cps

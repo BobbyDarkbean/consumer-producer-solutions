@@ -1,6 +1,6 @@
 #include "irunnable.h"
 
-namespace ConsProd {
+namespace Cps {
 
 IRunnable::IRunnable()
 {
@@ -17,4 +17,4 @@ IRunnable::~IRunnable()
     // no-op
 }
 
-} // namespace ConsProd
+} // namespace Cps

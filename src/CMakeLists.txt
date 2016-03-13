@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.6)
 
-set (PROJ consumer-producer-atomic)
+set (PROJ consumer-producer-solutions)
 project (${PROJ})
 
 message ("Project ${PROJECT_NAME}")

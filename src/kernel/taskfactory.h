@@ -1,13 +1,13 @@
 #ifndef _TaskFactory_h_
 #define _TaskFactory_h_
 
-#include "consprod_kernel_shared.h"
+#include "cps_kernel_shared.h"
 
-namespace ConsProd {
+namespace Cps {
 
 class ITask;
 
-class CONSPROD_KERNEL_SHARED TaskFactory
+class CPS_KERNEL_SHARED TaskFactory
 {
 public:
     TaskFactory();
@@ -18,6 +18,6 @@ private:
     DECLARE_INDIVIDUAL(TaskFactory)
 };
 
-} // namespace ConsProd
+} // namespace Cps
 
 #endif // _TaskFactory_h_

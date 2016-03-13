@@ -3,9 +3,9 @@
 
 #include "irunnable.h"
 
-namespace ConsProd {
+namespace Cps {
 
-class CONSPROD_KERNEL_SHARED ITask : public IRunnable
+class CPS_KERNEL_SHARED ITask : public IRunnable
 {
 public:
     ITask();
@@ -16,6 +16,6 @@ private:
     DECLARE_INDIVIDUAL(ITask)
 };
 
-} // namespace ConsProd
+} // namespace Cps
 
 #endif // _ITask_h_

@@ -5,7 +5,7 @@
 
 #include "taskcreator.h"
 
-namespace ConsProd {
+namespace Cps {
 
 class TaskCreatorImplementation
 {
@@ -56,4 +56,4 @@ TaskCreator::~TaskCreator()
     delete m;
 }
 
-} // namespace ConsProd
+} // namespace Cps

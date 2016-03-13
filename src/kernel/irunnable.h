@@ -1,11 +1,11 @@
 #ifndef _IRunnable_h_
 #define _IRunnable_h_
 
-#include "consprod_kernel_shared.h"
+#include "cps_kernel_shared.h"
 
-namespace ConsProd {
+namespace Cps {
 
-class CONSPROD_KERNEL_SHARED IRunnable
+class CPS_KERNEL_SHARED IRunnable
 {
 public:
     IRunnable();
@@ -16,6 +16,6 @@ private:
     DECLARE_INDIVIDUAL(IRunnable)
 };
 
-} // namespace ConsProd
+} // namespace Cps
 
 #endif // _IRunnable_h_
