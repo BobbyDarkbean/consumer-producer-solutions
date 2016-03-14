@@ -8,10 +8,12 @@ message ("Project ${PROJECT_NAME}")
 include_directories (../kernel)
 
 set (SRC connectiontask.c++
+         connectiontaskcreator.c++
          iconnectiontaskfactory.c++)
 
 set (HDR connectioninfo.h
          connectiontask.h
+         connectiontaskcreator.h
          cps_server_shared.h
          iconnectiontaskfactory.h)
 
