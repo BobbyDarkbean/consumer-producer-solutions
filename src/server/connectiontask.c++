@@ -5,7 +5,7 @@ namespace Cps {
 
 struct ConnectionTaskImplementation
 {
-    ConnectionInfo info;
+    std::shared_ptr<ConnectionInfo> info;
 };
 
 ConnectionTask::ConnectionTask()
@@ -15,13 +15,13 @@ ConnectionTask::ConnectionTask()
     // no-op
 }
 
-ConnectionInfo ConnectionTask::info() const
+std::shared_ptr<ConnectionInfo> ConnectionTask::info() const
 {
     M_UNIQUE(ConnectionTask);
     return m->info;
 }
 
-void ConnectionTask::setInfo(const ConnectionInfo &info)
+void ConnectionTask::setInfo(const std::shared_ptr<ConnectionInfo> &info)
 {
     M_UNIQUE(ConnectionTask);
     m->info = info;

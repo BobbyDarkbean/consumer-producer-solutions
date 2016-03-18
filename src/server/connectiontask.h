@@ -1,6 +1,7 @@
 #ifndef _ConnectionTask_h_
 #define _ConnectionTask_h_
 
+#include <memory>
 #include "itask.h"
 #include "cps_server_shared.h"
 
@@ -14,8 +15,8 @@ class CPS_SERVER_SHARED ConnectionTask : public ITask
 public:
     ConnectionTask();
 
-    ConnectionInfo info() const;
-    void setInfo(const ConnectionInfo &);
+    std::shared_ptr<ConnectionInfo> info() const;
+    void setInfo(const std::shared_ptr<ConnectionInfo> &);
 
     void run() = 0;
 
