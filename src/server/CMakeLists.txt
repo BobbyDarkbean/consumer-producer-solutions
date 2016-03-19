@@ -14,7 +14,9 @@ set (SRC connectiontask.c++
          ireplyencoder.c++
          irequestdecoder.c++
          isocketcontroller.c++
-         taskworker.c++)
+         taskscheduler.c++
+         taskworker.c++
+         workloop.c++)
 
 set (HDR connectiondata.h
          connectiontask.h
@@ -26,7 +28,9 @@ set (HDR connectiondata.h
          irequestdecoder.h
          isocketcontroller.h
          requestdata.h
-         taskworker.h)
+         taskscheduler.h
+         taskworker.h
+         workloop.h)
 
 add_definitions (-DCPS_SERVER_LIB)
 
