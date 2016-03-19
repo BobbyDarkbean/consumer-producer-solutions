@@ -16,6 +16,9 @@ public:
     ITaskQueue *queue() const;
     void setQueue(ITaskQueue *);
 
+    int msecsToWait() const;
+    void setMsecsToWait(int);
+
     ~Consumer();
 
 private:
