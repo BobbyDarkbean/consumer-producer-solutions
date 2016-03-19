@@ -6,21 +6,32 @@
 
 namespace Cps {
 
-enum RequestState
+enum ConnectionState
 {
-    RequestState_Undefined,
-    RequestState_Initialized,
-    RequestState_InProcess,
-    RequestState_Ready
+    ConnState_Undefined,
+    ConnState_Initialized,
+    ConnState_InProcess,
+    ConnState_ReplyReady
 };
 
 struct ConnectionInfo
 {
+    ConnectionInfo();
+
     int socketId;
     std::string request;
     std::string reply;
     std::atomic<int> state;
 };
+
+ConnectionInfo::ConnectionInfo()
+    : socketId(-1),
+      request(),
+      reply(),
+      state(ConnState_Undefined)
+{
+    // no-op
+}
 
 } // namespace Cps
 
