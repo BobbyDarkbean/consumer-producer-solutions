@@ -9,13 +9,15 @@ include_directories (../kernel)
 
 set (SRC connectiontask.c++
          connectiontaskcreator.c++
-         iconnectiontaskfactory.c++)
+         iconnectiontaskfactory.c++
+         taskworker.c++)
 
 set (HDR connectioninfo.h
          connectiontask.h
          connectiontaskcreator.h
          cps_server_shared.h
-         iconnectiontaskfactory.h)
+         iconnectiontaskfactory.h
+         taskworker.h)
 
 add_definitions (-DCPS_SERVER_LIB)
 
