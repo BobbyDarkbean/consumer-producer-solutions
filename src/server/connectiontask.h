@@ -1,13 +1,12 @@
 #ifndef _ConnectionTask_h_
 #define _ConnectionTask_h_
 
-#include <memory>
 #include "itask.h"
 #include "cps_server_shared.h"
 
 namespace Cps {
 
-struct ConnectionInfo;
+struct RequestData;
 
 struct ConnectionTaskImplementation;
 class CPS_SERVER_SHARED ConnectionTask : public ITask
@@ -15,8 +14,8 @@ class CPS_SERVER_SHARED ConnectionTask : public ITask
 public:
     ConnectionTask();
 
-    std::shared_ptr<ConnectionInfo> info() const;
-    void setInfo(const std::shared_ptr<ConnectionInfo> &);
+    RequestData *data() const;
+    void setData(RequestData *);
 
     void run() = 0;
 

@@ -1,12 +1,19 @@
-#include "connectioninfo.h"
 #include "connectiontask.h"
 
 namespace Cps {
 
 struct ConnectionTaskImplementation
 {
-    std::shared_ptr<ConnectionInfo> info;
+    ConnectionTaskImplementation();
+
+    RequestData *data;
 };
+
+ConnectionTaskImplementation::ConnectionTaskImplementation()
+    : data(nullptr)
+{
+    // no-op
+}
 
 ConnectionTask::ConnectionTask()
     : ITask(),
@@ -15,16 +22,16 @@ ConnectionTask::ConnectionTask()
     // no-op
 }
 
-std::shared_ptr<ConnectionInfo> ConnectionTask::info() const
+RequestData *ConnectionTask::data() const
 {
     M_UNIQUE(ConnectionTask);
-    return m->info;
+    return m->data;
 }
 
-void ConnectionTask::setInfo(const std::shared_ptr<ConnectionInfo> &info)
+void ConnectionTask::setData(RequestData *data)
 {
     M_UNIQUE(ConnectionTask);
-    m->info = info;
+    m->data = data;
 }
 
 void ConnectionTask::run()

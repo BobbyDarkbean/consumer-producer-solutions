@@ -12,11 +12,11 @@ set (SRC connectiontask.c++
          iconnectiontaskfactory.c++
          taskworker.c++)
 
-set (HDR connectioninfo.h
-         connectiontask.h
+set (HDR connectiontask.h
          connectiontaskcreator.h
          cps_server_shared.h
          iconnectiontaskfactory.h
+         requestdata.h
          taskworker.h)
 
 add_definitions (-DCPS_SERVER_LIB)
