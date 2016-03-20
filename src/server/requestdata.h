@@ -24,6 +24,9 @@ struct CPS_SERVER_SHARED RequestData
     std::string request;
     std::string reply;
     std::atomic<int> state;
+
+private:
+    DECLARE_INDIVIDUAL(RequestData)
 };
 
 RequestData::RequestData()
