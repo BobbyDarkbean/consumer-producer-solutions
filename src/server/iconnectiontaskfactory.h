@@ -7,14 +7,15 @@
 
 namespace Cps {
 
-class ConnectionTask;
-
 class CPS_SERVER_SHARED IConnectionTaskFactory : public ITaskFactory
 {
 public:
     IConnectionTaskFactory();
     ConnectionTask *create() const = 0;
     ~IConnectionTaskFactory();
+
+private:
+    DECLARE_INDIVIDUAL(IConnectionTaskFactory)
 };
 
 } // namespace Cps
