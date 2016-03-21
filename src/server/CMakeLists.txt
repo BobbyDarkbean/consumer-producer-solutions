@@ -10,12 +10,16 @@ include_directories (../kernel)
 set (SRC connectiontask.c++
          connectiontaskcreator.c++
          iconnectiontaskfactory.c++
+         ireplyencoder.c++
+         irequestdecoder.c++
          taskworker.c++)
 
 set (HDR connectiontask.h
          connectiontaskcreator.h
          cps_server_shared.h
          iconnectiontaskfactory.h
+         ireplyencoder.h
+         irequestdecoder.h
          requestdata.h
          taskworker.h)
 
