@@ -12,6 +12,7 @@ set (SRC connectiontask.c++
          iconnectiontaskfactory.c++
          ireplyencoder.c++
          irequestdecoder.c++
+         isocketcontroller.c++
          taskworker.c++)
 
 set (HDR connectiontask.h
@@ -20,6 +21,7 @@ set (HDR connectiontask.h
          iconnectiontaskfactory.h
          ireplyencoder.h
          irequestdecoder.h
+         isocketcontroller.h
          requestdata.h
          taskworker.h)
 
