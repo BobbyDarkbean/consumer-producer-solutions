@@ -1,4 +1,5 @@
 #include "isocketcontroller.h"
+#include "connectiondata.h"
 
 namespace Cps {
 
@@ -12,12 +13,12 @@ bool ISocketController::isReadyToRead() const
     return false;
 }
 
-void ISocketController::read(std::string & /* request */)
+ConnectionData ISocketController::read()
 {
-    // no-op
+    return ConnectionData();
 }
 
-void ISocketController::write(const std::string & /* reply */)
+void ISocketController::write(const ConnectionData &)
 {
     // no-op
 }

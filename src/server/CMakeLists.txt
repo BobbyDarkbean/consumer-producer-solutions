@@ -15,7 +15,8 @@ set (SRC connectiontask.c++
          isocketcontroller.c++
          taskworker.c++)
 
-set (HDR connectiontask.h
+set (HDR connectiondata.h
+         connectiontask.h
          connectiontaskcreator.h
          cps_server_shared.h
          iconnectiontaskfactory.h

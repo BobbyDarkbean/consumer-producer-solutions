@@ -1,4 +1,5 @@
 #include "ireplyencoder.h"
+#include "connectiondata.h"
 
 namespace Cps {
 
@@ -7,9 +8,9 @@ IReplyEncoder::IReplyEncoder()
     // no-op
 }
 
-std::string IReplyEncoder::encode(const RequestData * /* data */) const
+ConnectionData IReplyEncoder::encode(const RequestData * /* data */) const
 {
-    return std::string();
+    return ConnectionData();
 }
 
 IReplyEncoder::~IReplyEncoder()
