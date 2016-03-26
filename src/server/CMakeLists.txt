@@ -9,6 +9,7 @@ include_directories (../kernel)
 
 set (SRC connectiontask.c++
          connectiontaskcreator.c++
+         iconnectiontaskchart.c++
          iconnectiontaskfactory.c++
          ireplyencoder.c++
          irequestdecoder.c++
@@ -19,6 +20,7 @@ set (HDR connectiondata.h
          connectiontask.h
          connectiontaskcreator.h
          cps_server_shared.h
+         iconnectiontaskchart.h
          iconnectiontaskfactory.h
          ireplyencoder.h
          irequestdecoder.h
