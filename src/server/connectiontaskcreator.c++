@@ -1,20 +1,15 @@
 #include <memory>
 #include <unordered_map>
-#include <utility>
 #include "iconnectiontaskfactory.h"
 
 #include "connectiontaskcreator.h"
 
 namespace Cps {
 
-namespace {
-typedef std::unique_ptr<IConnectionTaskFactory> factory_ptr;
-}
-
 struct ConnectionTaskCreatorImplementation
 {
 public:
-    std::unordered_map<int, factory_ptr> factories;
+    std::unordered_map<int, std::unique_ptr<IConnectionTaskFactory>> factories;
 };
 
 ConnectionTaskCreator::ConnectionTaskCreator()
@@ -25,7 +20,7 @@ ConnectionTaskCreator::ConnectionTaskCreator()
 
 ConnectionTask *ConnectionTaskCreator::createTask(int type) const
 {
-    std::unordered_map<int, factory_ptr>::const_iterator i = m->factories.find(type);
+    auto i = m->factories.find(type);
     if (i == m->factories.end())
         return nullptr;
 
@@ -39,16 +34,16 @@ bool ConnectionTaskCreator::hasFactory(int type) const
 
 void ConnectionTaskCreator::insertFactory(int type, IConnectionTaskFactory *factory)
 {
-    std::unordered_map<int, factory_ptr>::iterator i = m->factories.find(type);
+    auto i = m->factories.find(type);
     if (i == m->factories.end())
-        i = m->factories.insert(std::make_pair(type, factory_ptr(nullptr))).first;
+        i = m->factories.emplace(type, nullptr).first;
 
     i->second.reset(factory);
 }
 
 void ConnectionTaskCreator::removeFactory(int type)
 {
-    std::unordered_map<int, factory_ptr>::iterator i = m->factories.find(type);
+    auto i = m->factories.find(type);
     if (i == m->factories.end())
         return;
 
