@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.6)
 
-set (LIB cps-server)
+set (LIB cps-server-base)
 project (${LIB})
 
 message ("Project ${PROJECT_NAME}")
