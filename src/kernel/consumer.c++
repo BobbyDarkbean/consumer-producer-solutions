@@ -16,14 +16,12 @@ ConsumerImplementation::ConsumerImplementation()
     : queue(nullptr),
       msecsToWait(DefaultMsecsToWait)
 {
-    // no-op
 }
 
 Consumer::Consumer()
     : IRunnable(),
       m_Consumer_impl(new ConsumerImplementation)
 {
-    // no-op
 }
 
 ITaskQueue *Consumer::queue() const

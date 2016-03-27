@@ -15,7 +15,6 @@ LockingQueue::LockingQueue()
     : ITaskQueue(),
       m(new LockingQueueImplementation)
 {
-    // no-op
 }
 
 void LockingQueue::push(ITask *task)

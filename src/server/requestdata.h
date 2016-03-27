@@ -36,7 +36,6 @@ RequestData::RequestData()
       reply(),
       state(RequestState_Undefined)
 {
-    // no-op
 }
 
 } // namespace Cps

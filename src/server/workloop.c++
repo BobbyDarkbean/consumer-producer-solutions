@@ -26,13 +26,11 @@ WorkLoopImplementation::WorkLoopImplementation()
       queue(nullptr),
       chart(nullptr)
 {
-    // no-op
 }
 
 WorkLoop::WorkLoop()
     : m(new WorkLoopImplementation)
 {
-    // no-op
 }
 
 int WorkLoop::consumerThreads() const

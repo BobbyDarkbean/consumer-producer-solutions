@@ -11,14 +11,12 @@ struct ProducerImplementation
 ProducerImplementation::ProducerImplementation()
     : queue(nullptr)
 {
-    // no-op
 }
 
 Producer::Producer()
     : IRunnable(),
       m_Producer_impl(new ProducerImplementation)
 {
-    // no-op
 }
 
 ITaskQueue *Producer::queue() const

@@ -12,14 +12,12 @@ struct ConnectionTaskImplementation
 ConnectionTaskImplementation::ConnectionTaskImplementation()
     : data(nullptr)
 {
-    // no-op
 }
 
 ConnectionTask::ConnectionTask()
     : ITask(),
       m_ConnectionTask_impl(new ConnectionTaskImplementation)
 {
-    // no-op
 }
 
 RequestData *ConnectionTask::data() const

@@ -12,7 +12,6 @@ namespace Cps {
 TaskWorker::TaskWorker()
     : Consumer()
 {
-    // no-op
 }
 
 void TaskWorker::run()
@@ -32,7 +31,6 @@ void TaskWorker::run()
 
 TaskWorker::~TaskWorker()
 {
-    // no-op
 }
 
 } // namespace Cps

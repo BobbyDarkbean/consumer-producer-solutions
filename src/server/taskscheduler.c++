@@ -29,14 +29,12 @@ TaskSchedulerImplementation::TaskSchedulerImplementation()
       replyEncoder(nullptr),
       creator()
 {
-    // no-op
 }
 
 TaskScheduler::TaskScheduler()
     : Producer(),
       m_TaskScheduler_impl(new TaskSchedulerImplementation)
 {
-    // no-op
 }
 
 void TaskScheduler::run()

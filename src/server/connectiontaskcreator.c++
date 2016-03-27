@@ -21,7 +21,6 @@ ConnectionTaskCreator::ConnectionTaskCreator()
     : ITaskCreator(),
       m(new ConnectionTaskCreatorImplementation)
 {
-    // no-op
 }
 
 ConnectionTask *ConnectionTaskCreator::createTask(int type) const
