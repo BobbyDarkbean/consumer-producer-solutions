@@ -33,11 +33,6 @@ void Producer::setQueue(ITaskQueue *queue)
     m->queue = queue;
 }
 
-ITaskCreator *Producer::creator() const
-{
-    return nullptr;
-}
-
 Producer::~Producer()
 {
     delete m_Producer_impl;

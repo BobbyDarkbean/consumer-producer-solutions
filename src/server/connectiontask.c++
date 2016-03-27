@@ -34,11 +34,6 @@ void ConnectionTask::setData(RequestData *data)
     m->data = data;
 }
 
-void ConnectionTask::run()
-{
-    ITask::run();
-}
-
 ConnectionTask::~ConnectionTask()
 {
     delete m_ConnectionTask_impl;

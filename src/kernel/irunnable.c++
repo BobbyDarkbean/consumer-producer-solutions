@@ -7,11 +7,6 @@ IRunnable::IRunnable()
     // no-op
 }
 
-void IRunnable::run()
-{
-    // no-op
-}
-
 IRunnable::~IRunnable()
 {
     // no-op

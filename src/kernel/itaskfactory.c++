@@ -7,11 +7,6 @@ ITaskFactory::ITaskFactory()
     // no-op
 }
 
-ITask *ITaskFactory::create() const
-{
-    return nullptr;
-}
-
 ITaskFactory::~ITaskFactory()
 {
     // no-op

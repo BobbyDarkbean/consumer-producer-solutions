@@ -8,11 +8,6 @@ IConnectionTaskFactory::IConnectionTaskFactory()
     // no-op
 }
 
-ConnectionTask *IConnectionTaskFactory::create() const
-{
-    return nullptr;
-}
-
 IConnectionTaskFactory::~IConnectionTaskFactory()
 {
     // no-op

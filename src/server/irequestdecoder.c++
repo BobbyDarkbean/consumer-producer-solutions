@@ -7,11 +7,6 @@ IRequestDecoder::IRequestDecoder()
     // no-op
 }
 
-RequestData *IRequestDecoder::decode(const ConnectionData & /* data */) const
-{
-    return nullptr;
-}
-
 IRequestDecoder::~IRequestDecoder()
 {
     // no-op

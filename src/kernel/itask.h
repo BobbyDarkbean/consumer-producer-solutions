@@ -9,7 +9,6 @@ class CPS_KERNEL_SHARED ITask : public IRunnable
 {
 public:
     ITask();
-    void run() = 0;
     ~ITask() = 0;
 
 private:

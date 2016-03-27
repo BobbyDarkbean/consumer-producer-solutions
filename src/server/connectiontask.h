@@ -17,8 +17,6 @@ public:
     RequestData *data() const;
     void setData(RequestData *);
 
-    void run() = 0;
-
     ~ConnectionTask();
 
 private:

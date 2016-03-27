@@ -7,11 +7,6 @@ IConnectionTaskChart::IConnectionTaskChart()
     // no-op
 }
 
-void IConnectionTaskChart::imbue(ConnectionTaskCreator *)
-{
-    // no-op
-}
-
 IConnectionTaskChart::~IConnectionTaskChart()
 {
     // no-op

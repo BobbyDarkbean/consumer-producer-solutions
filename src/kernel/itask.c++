@@ -8,11 +8,6 @@ ITask::ITask()
     // no-op
 }
 
-void ITask::run()
-{
-    IRunnable::run();
-}
-
 ITask::~ITask()
 {
     // no-op
