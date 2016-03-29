@@ -6,3 +6,4 @@ project (${PROJ})
 message ("Project ${PROJECT_NAME}")
 
 add_subdirectory (testbase)
+add_subdirectory (mockserver)
