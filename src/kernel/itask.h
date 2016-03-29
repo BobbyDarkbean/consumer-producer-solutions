@@ -9,6 +9,7 @@ class CPS_KERNEL_SHARED ITask : public IRunnable
 {
 public:
     ITask();
+    virtual int type() const = 0;
     ~ITask() = 0;
 
 private:
