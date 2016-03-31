@@ -17,3 +17,4 @@ endif ()
 
 add_subdirectory (kernel)
 add_subdirectory (serverbase)
+add_subdirectory (tests)
