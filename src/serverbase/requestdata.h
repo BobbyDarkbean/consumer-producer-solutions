@@ -29,15 +29,6 @@ private:
     DECLARE_INDIVIDUAL(RequestData)
 };
 
-RequestData::RequestData()
-    : socketId(-1),
-      type(-1),
-      request(),
-      reply(),
-      state(RequestState_Undefined)
-{
-}
-
 } // namespace Cps
 
 #endif // _RequestData_h_

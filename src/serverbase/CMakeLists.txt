@@ -14,6 +14,7 @@ set (SRC connectiontask.c++
          ireplyencoder.c++
          irequestdecoder.c++
          isocketcontroller.c++
+         requestdata.c++
          taskscheduler.c++
          taskworker.c++
          workloop.c++)
