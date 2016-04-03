@@ -5,7 +5,7 @@
 
 namespace Cps {
 
-class ITaskQueue;
+class ServerContext;
 class IConnectionTaskChart;
 
 struct WorkLoopImplementation;
@@ -17,8 +17,8 @@ public:
     int consumerThreads() const;
     void setConsumerThreads(int);
 
-    ITaskQueue *queue() const;
-    void setQueue(ITaskQueue *);
+    ServerContext *context() const;
+    void setContext(ServerContext *);
 
     IConnectionTaskChart *chart() const;
     void setChart(IConnectionTaskChart *);

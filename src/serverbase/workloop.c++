@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "iconnectiontaskchart.h"
+#include "servercontext.h"
 #include "taskscheduler.h"
 #include "taskworker.h"
 
@@ -16,16 +17,26 @@ struct WorkLoopImplementation
 {
     WorkLoopImplementation();
 
+    void provideContext(TaskScheduler *);
+
     int consumerThreads;
-    ITaskQueue *queue;
+    ServerContext *context;
     IConnectionTaskChart *chart;
 };
 
 WorkLoopImplementation::WorkLoopImplementation()
     : consumerThreads(DefaultConsumerThreads),
-      queue(nullptr),
+      context(nullptr),
       chart(nullptr)
 {
+}
+
+void WorkLoopImplementation::provideContext(TaskScheduler *scheduler)
+{
+    scheduler->setQueue(context->queue());
+    scheduler->setSocketController(context->controller());
+    scheduler->setRequestDecoder(context->decoder());
+    scheduler->setReplyEncoder(context->encoder());
 }
 
 WorkLoop::WorkLoop()
@@ -39,11 +50,11 @@ int WorkLoop::consumerThreads() const
 void WorkLoop::setConsumerThreads(int threads)
 { m->consumerThreads = threads; }
 
-ITaskQueue *WorkLoop::queue() const
-{ return m->queue; }
+ServerContext *WorkLoop::context() const
+{ return m->context; }
 
-void WorkLoop::setQueue(ITaskQueue *queue)
-{ m->queue = queue; }
+void WorkLoop::setContext(ServerContext *context)
+{ m->context = context; }
 
 IConnectionTaskChart *WorkLoop::chart() const
 { return m->chart; }
@@ -54,7 +65,7 @@ void WorkLoop::setChart(IConnectionTaskChart *chart)
 int WorkLoop::execute()
 {
     TaskScheduler scheduler;
-    scheduler.setQueue(m->queue);
+    m->provideContext(&scheduler);
     m->chart->imbue(scheduler.creator());
 
     std::vector<std::unique_ptr<TaskWorker>> workers;
@@ -62,7 +73,7 @@ int WorkLoop::execute()
 
     for (int i = 0; i < m->consumerThreads; ++i) {
         TaskWorker *worker = new TaskWorker;
-        worker->setQueue(m->queue);
+        worker->setQueue(m->context->queue());
 
         workers.emplace_back(worker);
         threads.push_back(std::thread(TaskWorker::run, worker));

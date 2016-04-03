@@ -15,6 +15,7 @@ set (SRC connectiontask.c++
          irequestdecoder.c++
          isocketcontroller.c++
          requestdata.c++
+         servercontext.c++
          taskscheduler.c++
          taskworker.c++
          workloop.c++)
@@ -29,6 +30,7 @@ set (HDR connectiondata.h
          irequestdecoder.h
          isocketcontroller.h
          requestdata.h
+         servercontext.h
          taskscheduler.h
          taskworker.h
          workloop.h)
