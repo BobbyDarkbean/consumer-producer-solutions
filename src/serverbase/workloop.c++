@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "iconnectiontaskchart.h"
+#include "intercom.h"
 #include "servercontext.h"
 #include "taskscheduler.h"
 #include "taskworker.h"
@@ -68,12 +69,16 @@ int WorkLoop::execute()
     m->provideContext(&scheduler);
     m->chart->imbue(scheduler.creator());
 
+    Intercom intercom;
+    scheduler.initIntercom(&intercom);
+
     std::vector<std::unique_ptr<TaskWorker>> workers;
     std::vector<std::thread> threads;
 
     for (int i = 0; i < m->consumerThreads; ++i) {
         TaskWorker *worker = new TaskWorker;
         worker->setQueue(m->context->queue());
+        worker->setIntercom(&intercom);
 
         workers.emplace_back(worker);
         threads.push_back(std::thread(TaskWorker::run, worker));

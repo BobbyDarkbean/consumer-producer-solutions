@@ -7,6 +7,7 @@
 
 namespace Cps {
 
+class Intercom;
 class IReplyEncoder;
 class IRequestDecoder;
 class ISocketController;
@@ -16,6 +17,8 @@ class CPS_SERVER_SHARED TaskScheduler : public Producer
 {
 public:
     TaskScheduler();
+
+    void initIntercom(Intercom *intercom);
 
     void run();
     ConnectionTaskCreator *creator() const;

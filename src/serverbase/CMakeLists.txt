@@ -11,6 +11,7 @@ set (SRC connectiontask.c++
          connectiontaskcreator.c++
          iconnectiontaskchart.c++
          iconnectiontaskfactory.c++
+         intercom.c++
          ireplyencoder.c++
          irequestdecoder.c++
          isocketcontroller.c++
@@ -26,6 +27,7 @@ set (HDR connectiondata.h
          cps_server_shared.h
          iconnectiontaskchart.h
          iconnectiontaskfactory.h
+         intercom.h
          ireplyencoder.h
          irequestdecoder.h
          isocketcontroller.h

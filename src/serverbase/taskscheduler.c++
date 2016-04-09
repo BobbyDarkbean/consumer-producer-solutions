@@ -2,6 +2,7 @@
 #include <memory>
 
 #include "connectiondata.h"
+#include "intercom.h"
 #include "ireplyencoder.h"
 #include "irequestdecoder.h"
 #include "isocketcontroller.h"
@@ -20,6 +21,8 @@ struct TaskSchedulerImplementation
     IRequestDecoder *requestDecoder;
     IReplyEncoder *replyEncoder;
 
+    std::atomic<int> serverState;
+
     ConnectionTaskCreator creator;
 };
 
@@ -27,6 +30,7 @@ TaskSchedulerImplementation::TaskSchedulerImplementation()
     : socketController(nullptr),
       requestDecoder(nullptr),
       replyEncoder(nullptr),
+      serverState(ServerState_Initial),
       creator()
 {
 }
@@ -37,8 +41,17 @@ TaskScheduler::TaskScheduler()
 {
 }
 
+void TaskScheduler::initIntercom(Intercom *intercom)
+{
+    M_UNIQUE(TaskScheduler);
+    intercom->init(&m->serverState);
+}
+
 void TaskScheduler::run()
 {
+    M_UNIQUE(TaskScheduler);
+    m->serverState.store(ServerState_Running);
+
     std::list<std::unique_ptr<RequestData>> requests;
 
     while (true) {
@@ -51,6 +64,12 @@ void TaskScheduler::run()
             } else {
                 ++i;
             }
+        }
+
+        if (m->serverState.load() == ServerState_Stopping) {
+            if (requests.empty())
+                break;
+            continue;
         }
 
         if (!socketController()->isReadyToRead())
@@ -70,6 +89,8 @@ void TaskScheduler::run()
         queue()->push(task);
         requests.push_back(std::move(request)); // request stored in local list
     }
+
+    m->serverState.store(ServerState_Stopped);
 }
 
 ConnectionTaskCreator *TaskScheduler::creator() const
