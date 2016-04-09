@@ -4,6 +4,7 @@
 
 #include "iconnectiontaskchart.h"
 #include "intercom.h"
+#include "maintenancetaskchart.h"
 #include "servercontext.h"
 #include "taskscheduler.h"
 #include "taskworker.h"
@@ -71,6 +72,10 @@ int WorkLoop::execute()
 
     Intercom intercom;
     scheduler.initIntercom(&intercom);
+
+    MaintenanceTaskChart maintenanceChart;
+    maintenanceChart.setIntercom(&intercom);
+    maintenanceChart.imbue(scheduler.creator());
 
     std::vector<std::unique_ptr<TaskWorker>> workers;
     std::vector<std::thread> threads;

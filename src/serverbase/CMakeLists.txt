@@ -15,6 +15,9 @@ set (SRC connectiontask.c++
          ireplyencoder.c++
          irequestdecoder.c++
          isocketcontroller.c++
+         maintenancetask.c++
+         maintenancetaskchart.c++
+         maintenancetaskfactory.c++
          requestdata.c++
          servercontext.c++
          taskscheduler.c++
@@ -31,6 +34,9 @@ set (HDR connectiondata.h
          ireplyencoder.h
          irequestdecoder.h
          isocketcontroller.h
+         maintenancetask.h
+         maintenancetaskchart.h
+         maintenancetaskfactory.h
          requestdata.h
          servercontext.h
          taskscheduler.h
