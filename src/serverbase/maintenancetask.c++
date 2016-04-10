@@ -1,4 +1,6 @@
 #include "intercom.h"
+#include "requestdata.h"
+
 #include "maintenancetask.h"
 
 namespace Cps {
@@ -27,6 +29,7 @@ int StopServerTask::type() const
 void StopServerTask::run()
 {
     intercom()->stopServer();
+    data()->state.store(RequestState_ReplyReady);
 }
 
 StopServerTask::~StopServerTask()
