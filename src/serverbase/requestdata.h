@@ -3,7 +3,7 @@
 
 #include <string>
 #include <atomic>
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
@@ -15,7 +15,7 @@ enum RequestState
     RequestState_ReplyReady
 };
 
-struct CPS_SERVER_SHARED RequestData
+struct CPS_SERVERBASE_SHARED RequestData
 {
     RequestData();
 

@@ -3,11 +3,11 @@
 
 #include "itaskfactory.h"
 #include "connectiontask.h"
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
-class CPS_SERVER_SHARED IConnectionTaskFactory : public ITaskFactory
+class CPS_SERVERBASE_SHARED IConnectionTaskFactory : public ITaskFactory
 {
 public:
     IConnectionTaskFactory();

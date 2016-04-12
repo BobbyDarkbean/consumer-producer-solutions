@@ -1,13 +1,13 @@
 #ifndef _IConnectionTaskChart_h_
 #define _IConnectionTaskChart_h_
 
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
 class ConnectionTaskCreator;
 
-class CPS_SERVER_SHARED IConnectionTaskChart
+class CPS_SERVERBASE_SHARED IConnectionTaskChart
 {
 public:
     IConnectionTaskChart();

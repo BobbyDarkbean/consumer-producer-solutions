@@ -1,7 +1,7 @@
 #ifndef _ServerContext_h_
 #define _ServerContext_h_
 
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
@@ -11,7 +11,7 @@ class ISocketController;
 class ITaskQueue;
 
 struct ServerContextImplementation;
-class CPS_SERVER_SHARED ServerContext
+class CPS_SERVERBASE_SHARED ServerContext
 {
 public:
     ServerContext();

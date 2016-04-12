@@ -27,7 +27,7 @@ set (SRC connectiontask.c++
 set (HDR connectiondata.h
          connectiontask.h
          connectiontaskcreator.h
-         cps_server_shared.h
+         cps_serverbase_shared.h
          iconnectiontaskchart.h
          iconnectiontaskfactory.h
          intercom.h
@@ -43,7 +43,7 @@ set (HDR connectiondata.h
          taskworker.h
          workloop.h)
 
-add_definitions (-DCPS_SERVER_LIB)
+add_definitions (-DCPS_SERVERBASE_LIB)
 
 add_library (${LIB} SHARED ${SRC} ${HDR})
 target_link_libraries (${LIB} cps-kernel)

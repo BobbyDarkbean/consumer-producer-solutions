@@ -1,13 +1,13 @@
 #ifndef _ISocketController_h_
 #define _ISocketController_h_
 
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
 struct ConnectionData;
 
-class CPS_SERVER_SHARED ISocketController
+class CPS_SERVERBASE_SHARED ISocketController
 {
 public:
     ISocketController();

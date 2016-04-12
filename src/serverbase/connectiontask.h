@@ -2,14 +2,14 @@
 #define _ConnectionTask_h_
 
 #include "itask.h"
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
 struct RequestData;
 
 struct ConnectionTaskImplementation;
-class CPS_SERVER_SHARED ConnectionTask : public ITask
+class CPS_SERVERBASE_SHARED ConnectionTask : public ITask
 {
 public:
     ConnectionTask();

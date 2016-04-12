@@ -2,14 +2,14 @@
 #define _TaskWorker_h_
 
 #include "consumer.h"
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
 class Intercom;
 
 struct TaskWorkerImplementation;
-class CPS_SERVER_SHARED TaskWorker : public Consumer
+class CPS_SERVERBASE_SHARED TaskWorker : public Consumer
 {
 public:
     TaskWorker();

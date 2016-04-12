@@ -1,14 +1,14 @@
 #ifndef _IRequestDecoder_h_
 #define _IRequestDecoder_h_
 
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
 struct ConnectionData;
 struct RequestData;
 
-class CPS_SERVER_SHARED IRequestDecoder
+class CPS_SERVERBASE_SHARED IRequestDecoder
 {
 public:
     IRequestDecoder();

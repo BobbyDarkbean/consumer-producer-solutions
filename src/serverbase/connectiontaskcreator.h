@@ -3,14 +3,14 @@
 
 #include "itaskcreator.h"
 #include "connectiontask.h"
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
 class IConnectionTaskFactory;
 
 struct ConnectionTaskCreatorImplementation;
-class CPS_SERVER_SHARED ConnectionTaskCreator : public ITaskCreator
+class CPS_SERVERBASE_SHARED ConnectionTaskCreator : public ITaskCreator
 {
 public:
     ConnectionTaskCreator();

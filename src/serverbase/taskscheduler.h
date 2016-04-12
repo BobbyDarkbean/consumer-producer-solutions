@@ -3,7 +3,7 @@
 
 #include "producer.h"
 #include "connectiontaskcreator.h"
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
@@ -13,7 +13,7 @@ class IRequestDecoder;
 class ISocketController;
 
 struct TaskSchedulerImplementation;
-class CPS_SERVER_SHARED TaskScheduler : public Producer
+class CPS_SERVERBASE_SHARED TaskScheduler : public Producer
 {
 public:
     TaskScheduler();

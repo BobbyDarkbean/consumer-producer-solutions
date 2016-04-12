@@ -1,14 +1,14 @@
 #ifndef _IReplyEncoder_h_
 #define _IReplyEncoder_h_
 
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
 struct ConnectionData;
 struct RequestData;
 
-class CPS_SERVER_SHARED IReplyEncoder
+class CPS_SERVERBASE_SHARED IReplyEncoder
 {
 public:
     IReplyEncoder();

@@ -2,7 +2,7 @@
 #define _Intercom_h_
 
 #include <atomic>
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
@@ -16,7 +16,7 @@ enum ServerState
 };
 
 struct IntercomImplementation;
-class CPS_SERVER_SHARED Intercom
+class CPS_SERVERBASE_SHARED Intercom
 {
 public:
     Intercom();

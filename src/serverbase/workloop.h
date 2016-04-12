@@ -1,7 +1,7 @@
 #ifndef _WorkLoop_h_
 #define _WorkLoop_h_
 
-#include "cps_server_shared.h"
+#include "cps_serverbase_shared.h"
 
 namespace Cps {
 
@@ -9,7 +9,7 @@ class ServerContext;
 class IConnectionTaskChart;
 
 struct WorkLoopImplementation;
-class CPS_SERVER_SHARED WorkLoop
+class CPS_SERVERBASE_SHARED WorkLoop
 {
 public:
     WorkLoop();
