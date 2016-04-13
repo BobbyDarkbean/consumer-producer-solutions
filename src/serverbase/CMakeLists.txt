@@ -20,6 +20,7 @@ set (SRC connectiontask.c++
          maintenancetaskfactory.c++
          requestdata.c++
          servercontext.c++
+         serverdaemon.c++
          taskscheduler.c++
          taskworker.c++
          workloop.c++)
@@ -39,6 +40,7 @@ set (HDR connectiondata.h
          maintenancetaskfactory.h
          requestdata.h
          servercontext.h
+         serverdaemon.h
          taskscheduler.h
          taskworker.h
          workloop.h)
