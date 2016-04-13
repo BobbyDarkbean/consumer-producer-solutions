@@ -5,6 +5,8 @@ project (${PROJ})
 
 message ("Project ${PROJECT_NAME}")
 
+set (BUILD_TESTS ON)
+
 if (WIN32)
     add_definitions (-DOS_WIN)
 endif ()
@@ -17,4 +19,7 @@ endif ()
 
 add_subdirectory (kernel)
 add_subdirectory (serverbase)
-add_subdirectory (tests)
+
+if (BUILD_TESTS)
+    add_subdirectory (tests)
+endif ()
