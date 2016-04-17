@@ -1,5 +1,7 @@
+#include <locale>
 #include "connectiondata.h"
 #include "requestdata.h"
+#include "maintenancetask.h"
 
 #include "mockrequestdecoder.h"
 
@@ -16,12 +18,10 @@ RequestData *MockRequestDecoder::decode(const ConnectionData &data) const
 
     requestData->socketId = data.socketId;
     requestData->request = data.rawBytes;
-    char meta = *data.rawBytes.begin();
-
-    if (isdigit(meta))
-        requestData->type = meta - '0';
-    else
-        requestData->type = -1;
+    char meta = !data.rawBytes.empty() ? *data.rawBytes.begin() : '-';
+    requestData->type = std::isdigit(meta, std::locale())
+            ? std::stoi(data.rawBytes)
+            : MaintenanceTask_StopServer;
 
     return requestData;
 }

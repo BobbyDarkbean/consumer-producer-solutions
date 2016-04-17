@@ -1,5 +1,6 @@
 #include "connectiondata.h"
 #include "requestdata.h"
+#include "maintenancetask.h"
 
 #include "mockreplyencoder.h"
 
@@ -15,7 +16,9 @@ ConnectionData MockReplyEncoder::encode(const RequestData *data) const
     ConnectionData connectionData;
 
     connectionData.socketId = data->socketId;
-    connectionData.rawBytes.push_back(data->type + '0');
+    connectionData.rawBytes = data->type == MaintenanceTask_StopServer
+            ? "stop"
+            : std::to_string(data->type);
 
     return connectionData;
 }
