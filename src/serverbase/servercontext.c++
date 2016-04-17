@@ -8,17 +8,25 @@
 
 namespace Cps {
 
+const int DefaultConsumerThreads = 4;
+const int DefaultConsumerWaitMsecs = 1;
+
 struct ServerContextImplementation
 {
     std::unique_ptr<ITaskQueue> queue;
     std::unique_ptr<ISocketController> controller;
     std::unique_ptr<IRequestDecoder> decoder;
     std::unique_ptr<IReplyEncoder> encoder;
+
+    int consumerThreads;
+    int consumerWaitMsecs;
 };
 
 ServerContext::ServerContext()
     : m(new ServerContextImplementation)
 {
+    m->consumerThreads = DefaultConsumerThreads;
+    m->consumerWaitMsecs = DefaultConsumerWaitMsecs;
 }
 
 ITaskQueue *ServerContext::queue() const
@@ -44,6 +52,18 @@ IReplyEncoder *ServerContext::encoder() const
 
 void ServerContext::setEncoder(IReplyEncoder *encoder)
 { m->encoder.reset(encoder); }
+
+int ServerContext::consumerThreads() const
+{ return m->consumerThreads; }
+
+void ServerContext::setConsumerThreads(int threads)
+{ m->consumerThreads = threads; }
+
+int ServerContext::consumerWaitMsecs() const
+{ return m->consumerWaitMsecs; }
+
+void ServerContext::setConsumerWaitMsecs(int msecs)
+{ m->consumerWaitMsecs = msecs; }
 
 ServerContext::~ServerContext()
 {

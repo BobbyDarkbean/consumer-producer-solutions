@@ -28,6 +28,12 @@ MockServerDaemon::MockServerDaemon()
     m->context.setController(new MockSocketController(&m->logicFacade));
     m->context.setDecoder(new MockRequestDecoder);
     m->context.setEncoder(new MockReplyEncoder);
+#ifdef CPS_MOCKSERVER_CONSUMER_THREADS
+    m->context.setConsumerThreads(CPS_MOCKSERVER_CONSUMER_THREADS);
+#endif
+#ifdef CPS_MOCKSERVER_CONSUMER_WAIT_INTERVAL
+    m->context.setConsumerWaitMsecs(CPS_MOCKSERVER_CONSUMER_WAIT_INTERVAL);
+#endif
 
     m->chart.setLogicFacade(&m->logicFacade);
 }

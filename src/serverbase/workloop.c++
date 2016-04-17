@@ -13,22 +13,18 @@
 
 namespace Cps {
 
-const int DefaultConsumerThreads = 4;
-
 struct WorkLoopImplementation
 {
     WorkLoopImplementation();
 
     void provideContext(TaskScheduler *);
 
-    int consumerThreads;
     ServerContext *context;
     IConnectionTaskChart *chart;
 };
 
 WorkLoopImplementation::WorkLoopImplementation()
-    : consumerThreads(DefaultConsumerThreads),
-      context(nullptr),
+    : context(nullptr),
       chart(nullptr)
 {
 }
@@ -45,12 +41,6 @@ WorkLoop::WorkLoop()
     : m(new WorkLoopImplementation)
 {
 }
-
-int WorkLoop::consumerThreads() const
-{ return m->consumerThreads; }
-
-void WorkLoop::setConsumerThreads(int threads)
-{ m->consumerThreads = threads; }
 
 ServerContext *WorkLoop::context() const
 { return m->context; }
@@ -80,9 +70,10 @@ int WorkLoop::execute()
     std::vector<std::unique_ptr<TaskWorker>> workers;
     std::vector<std::thread> threads;
 
-    for (int i = 0; i < m->consumerThreads; ++i) {
+    for (int i = 0; i < m->context->consumerThreads(); ++i) {
         TaskWorker *worker = new TaskWorker;
         worker->setQueue(m->context->queue());
+        worker->setMsecsToWait(m->context->consumerWaitMsecs());
         worker->setIntercom(&intercom);
 
         workers.emplace_back(worker);

@@ -2,8 +2,6 @@
 
 namespace Cps {
 
-const int DefaultMsecsToWait = 1;
-
 struct ConsumerImplementation
 {
     ConsumerImplementation();
@@ -14,7 +12,7 @@ struct ConsumerImplementation
 
 ConsumerImplementation::ConsumerImplementation()
     : queue(nullptr),
-      msecsToWait(DefaultMsecsToWait)
+      msecsToWait(0)
 {
 }
 

@@ -14,9 +14,6 @@ class CPS_SERVERBASE_SHARED WorkLoop
 public:
     WorkLoop();
 
-    int consumerThreads() const;
-    void setConsumerThreads(int);
-
     ServerContext *context() const;
     void setContext(ServerContext *);
 

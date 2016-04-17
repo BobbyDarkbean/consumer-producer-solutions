@@ -28,6 +28,12 @@ public:
     IReplyEncoder *encoder() const;
     void setEncoder(IReplyEncoder *);
 
+    int consumerThreads() const;
+    void setConsumerThreads(int);
+
+    int consumerWaitMsecs() const;
+    void setConsumerWaitMsecs(int);
+
     ~ServerContext();
 
 private:
