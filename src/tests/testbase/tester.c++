@@ -29,24 +29,24 @@ TesterImplementation::TesterImplementation()
 
 void TesterImplementation::echo(const char *msg)
 {
-    *log << msg << '\n';
+    *log << msg << std::endl;
 }
 
 void TesterImplementation::printSummary()
 {
-    *log << "Summary : " << passed << " passed, " << failed << " failed.\n";
+    *log << "Summary : " << passed << " passed, " << failed << " failed." << std::endl;
 }
 
 bool TesterImplementation::pass(const char *func)
 {
-    *log << "PASS\t: " << func << '\n';
+    *log << "PASS\t: " << func << std::endl;
     ++passed;
     return true;
 }
 
 bool TesterImplementation::fail(const char *func, const char *file, long line)
 {
-    *log << "FAIL\t: " << func << " at " << file << '(' << line << ')' << '\n';
+    *log << "FAIL\t: " << func << " at " << file << '(' << line << ')' << std::endl;
     ++failed;
     return false;
 }
@@ -90,6 +90,21 @@ unsigned Tester::failed() const
 bool Tester::verify(bool expr, const char *func, const char *file, long line)
 {
     return expr ? m->pass(func) : m->fail(func, file, line);
+}
+
+void Tester::writeToLog(const char *s)
+{
+    *log() << s;
+}
+
+void Tester::writeToLog(char c)
+{
+    *log() << c;
+}
+
+void Tester::writeToLog(int i)
+{
+    *log() << i;
 }
 
 Tester::~Tester()

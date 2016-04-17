@@ -16,6 +16,8 @@ public:
     void setLog(std::ostream *);
 
     void echo(const char *msg);
+    template <typename T>
+    void echo(const char *key, T value);
 
     unsigned passed() const;
     unsigned failed() const;
@@ -28,12 +30,24 @@ public:
         return verify(actual == expected, func, file, line);
     }
 
+    void writeToLog(const char *);
+    void writeToLog(char);
+    void writeToLog(int);
+
     ~Tester();
 
 private:
     DECLARE_INDIVIDUAL(Tester)
     DECLARE_IMPLEMENTATION(Tester)
 };
+
+template <typename T>
+inline Tester &operator <<(Tester &tester, T t)
+{ tester.writeToLog(t); return tester; }
+
+template <typename T>
+inline void Tester::echo(const char *key, T value)
+{ *this << key << ": " << value << '\n'; }
 
 } // namespace Cps
 
@@ -50,6 +64,6 @@ private:
     tester()->echo(" ------- [" #name "] -------\n")
 
 #define PRINT_RETURN(code) \
-    tester()->echo("Work loop return code: " + code)
+    (*tester()) << '\n' << "Return code: " << code << '\n'
 
 #endif // _Tester_h_
