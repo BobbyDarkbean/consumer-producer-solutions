@@ -17,7 +17,6 @@ public:
 
     MockLogicFacade *logicFacade() const;
 
-protected:
     ServerContext *context() const;
     IConnectionTaskChart *chart() const;
 

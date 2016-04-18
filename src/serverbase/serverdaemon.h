@@ -16,7 +16,6 @@ public:
 
     int operator()();
 
-protected:
     virtual ServerContext *context() const = 0;
     virtual IConnectionTaskChart *chart() const = 0;
 
