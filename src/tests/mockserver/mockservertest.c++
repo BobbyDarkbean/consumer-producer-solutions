@@ -20,8 +20,8 @@ void MockServerTest::run()
     BEGIN_TEST(MockServerTest);
     tester()->echo("Configuration:");
     tester()->echo("Consumer threads", daemon.context()->consumerThreads());
-    tester()->echo("Consumer wait interval", daemon.context()->consumerWaitMsecs());
-    tester()->echo("Duration", CPS_MOCKSERVER_TEST_RUN_DURATION);
+    tester()->echo("Consumer wait interval (msecs)", daemon.context()->consumerWaitMsecs());
+    tester()->echo("Duration (secs)", CPS_MOCKSERVER_TEST_RUN_DURATION);
 #ifdef CPS_MOCKSERVER_SUPPRESS_TASK_OUTPUT
     tester()->echo("Task output suppressed.");
 #endif
