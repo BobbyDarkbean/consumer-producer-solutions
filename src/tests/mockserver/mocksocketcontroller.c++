@@ -9,9 +9,9 @@
 
 namespace Cps {
 
-const int MinInterval = 100000;
-const int MaxInterval = 500000;
-const int InitInterval = 10000;
+const int MinInterval = 100;
+const int MaxInterval = 500;
+const std::chrono::milliseconds InitDelayDuration(10);
 const std::chrono::seconds TestDuration(CPS_MOCKSERVER_TEST_RUN_DURATION);
 
 const int MinTaskId = 1;
@@ -23,19 +23,19 @@ struct MockSocketControllerImplementation
 {
     explicit MockSocketControllerImplementation(MockLogicFacade *);
 
-    int countdown;
+    std::chrono::steady_clock::time_point timeout;
     std::list<ConnectionData> dataList;
 
     std::minstd_rand randomizer;
     std::uniform_int_distribution<int> intervalUid;
-    std::uniform_int_distribution<char> taskIdUid;
+    std::uniform_int_distribution<int> taskIdUid;
     std::chrono::steady_clock::time_point startTime;
 
     MockLogicFacade *logicFacade;
 };
 
 MockSocketControllerImplementation::MockSocketControllerImplementation(MockLogicFacade *logicFacade)
-    : countdown(InitInterval),
+    : timeout(std::chrono::steady_clock::now() + InitDelayDuration),
       dataList(),
       randomizer(std::chrono::system_clock::now().time_since_epoch().count()),
       intervalUid(MinInterval, MaxInterval),
@@ -54,18 +54,20 @@ MockSocketController::MockSocketController(MockLogicFacade *logicFacade)
 bool MockSocketController::isReadyToRead() const
 {
     M_UNIQUE(MockSocketController);
-    if (--m->countdown)
+    if (std::chrono::steady_clock::now() < m->timeout)
         return false;
 
     if (std::chrono::steady_clock::now() > m->startTime + TestDuration) {
+        m->timeout = std::chrono::steady_clock::now() + TestDuration;
         m->dataList.push_back(RequestForStop);
         return true;
     }
 
-    m->countdown = m->intervalUid(m->randomizer);
+    int nextInterval = m->intervalUid(m->randomizer);
+    m->timeout = std::chrono::steady_clock::now() + std::chrono::microseconds(nextInterval);
     int taskId = m->taskIdUid(m->randomizer);
 
-    ConnectionData data { 0, std::string(1, char(taskId + '0')) };
+    ConnectionData data { 0, std::to_string(taskId) };
     m->dataList.push_back(data);
     m->logicFacade->increaseRawDataCreations(taskId);
 
