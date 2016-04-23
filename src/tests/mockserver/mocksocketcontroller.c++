@@ -29,6 +29,7 @@ struct MockSocketControllerImplementation
     std::uniform_int_distribution<int> intervalUid;
     std::uniform_int_distribution<int> taskIdUid;
     std::chrono::steady_clock::time_point startTime;
+    bool isStopRequested;
 
     MockLogicFacade *logicFacade;
 };
@@ -40,6 +41,7 @@ MockSocketControllerImplementation::MockSocketControllerImplementation(MockLogic
       intervalUid(MinInterval, MaxInterval),
       taskIdUid(MinTaskId, MaxTaskId),
       startTime(std::chrono::steady_clock::now()),
+      isStopRequested(false),
       logicFacade(logicFacade)
 {
 }
@@ -57,9 +59,9 @@ bool MockSocketController::isReadyToRead() const
         return false;
 
     std::chrono::seconds testDuration(m->logicFacade->testDuration());
-    if (std::chrono::steady_clock::now() > m->startTime + testDuration) {
-        m->timeout = std::chrono::steady_clock::now() + testDuration;
+    if (std::chrono::steady_clock::now() > (m->startTime + testDuration) && !m->isStopRequested) {
         m->dataList.push_back(RequestForStop);
+        m->isStopRequested = true;
         return true;
     }
 
