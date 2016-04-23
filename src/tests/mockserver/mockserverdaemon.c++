@@ -24,6 +24,9 @@ MockServerDaemon::MockServerDaemon()
     : m_MockServerDaemon_impl(new MockServerDaemonImplementation)
 {
     M_UNIQUE(MockServerDaemon);
+#ifdef CPS_MOCKSERVER_TEST_RUN_DURATION
+    m->logicFacade.setTestDuration(CPS_MOCKSERVER_TEST_RUN_DURATION);
+#endif
     m->context.setQueue(new LockingQueue);
     m->context.setController(new MockSocketController(&m->logicFacade));
     m->context.setDecoder(new MockRequestDecoder);

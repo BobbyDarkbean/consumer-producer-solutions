@@ -22,6 +22,9 @@ public:
     void increaseRawDataReadings();
     void increaseRawDataWritings();
 
+    int testDuration() const;
+    void setTestDuration(int secs);
+
     ~MockLogicFacade();
 
 private:

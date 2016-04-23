@@ -12,7 +12,6 @@ namespace Cps {
 const int MinInterval = 100;
 const int MaxInterval = 500;
 const std::chrono::milliseconds InitDelayDuration(10);
-const std::chrono::seconds TestDuration(CPS_MOCKSERVER_TEST_RUN_DURATION);
 
 const int MinTaskId = 1;
 const int MaxTaskId = 2;
@@ -57,8 +56,9 @@ bool MockSocketController::isReadyToRead() const
     if (std::chrono::steady_clock::now() < m->timeout)
         return false;
 
-    if (std::chrono::steady_clock::now() > m->startTime + TestDuration) {
-        m->timeout = std::chrono::steady_clock::now() + TestDuration;
+    std::chrono::seconds testDuration(m->logicFacade->testDuration());
+    if (std::chrono::steady_clock::now() > m->startTime + testDuration) {
+        m->timeout = std::chrono::steady_clock::now() + testDuration;
         m->dataList.push_back(RequestForStop);
         return true;
     }
