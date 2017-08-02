@@ -77,7 +77,7 @@ int WorkLoop::execute()
         worker->setIntercom(&intercom);
 
         workers.emplace_back(worker);
-        threads.push_back(std::thread(TaskWorker::run, worker));
+        threads.push_back(std::thread(&TaskWorker::run, worker));
     }
 
     scheduler.run();
